@@ -1,0 +1,32 @@
+<h2 class="center">Title: <%= @job.title %></h2>
+
+<div class="well col-xs-8">
+    <% if @job.user %>
+    <ul class="listing">
+        <div class="row center">
+            <div class="col-md-4 col-md-offset-4">
+                <li>Created by:</li>
+                <li><%= link_to gravatar_for(@job.user), user_path(@job.user) %></li>
+                <li class="job-title">
+                    <%= link_to @job.user.username, user_path(@job.user) %>
+                </li>
+                <li><small><%= pluralize(@job.user.jobs.count, "job") if @job.user.jobs %></small></li>
+            </div>
+        </div>
+    </ul>
+    <% end %>
+    <h4 class="center description"><strong>Description:</strong></h4>
+    <hr>
+    <%= simple_format(@job.description) %>
+    <% if @job.categories.any? %>
+        <p>Categories: <%= render @job.categories %></p>
+    <% end %>
+    <div class="job-actions">
+        <% if logged_in? && (current_user == @job.user || current_user.admin?) %>
+        <%= link_to "Edit this job", edit_job_path(@job), class: "btn btn-xs btn-primary" %>
+        <%= link_to "Delete this job", jobs_path(@job), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-xs btn-danger" %>
+        <% end %>
+        <%= link_to "View all jobs", jobs_path, class: "btn btn-xs btn-success" %>
+    </div>
+    
+</div>  

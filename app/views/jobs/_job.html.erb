@@ -1,0 +1,28 @@
+<% obj.each do |job| %>
+<div class="row">
+    <div class="col-xs-8">
+        <div class="well well-lg">
+            <div class="job-title"><%= link_to job.title, job_path(job) %></div>
+            <div class="job-body">
+                <%= truncate(job.description, length: 100) %>
+                <div class="job-meta-details">
+                    <small>Created by: <%= job.user.username if job.user %>, <%= time_ago_in_words(job.created_at) %> ago,
+                    last updated: <%= time_ago_in_words(job.updated_at) %> ago</small>
+                </div>
+            </div>
+            <% if job.price.present? %>
+            <div class="price"><%= job.price %></div>
+            <% end %>
+            <% if job.categories.any? %>
+                <p>Categories: <%= render job.categories %></p>
+            <% end %>
+            <% if logged_in? && (current_user == job.user || current_user.admin?) %>
+            <div class="job-actions">
+                <%= link_to "Edit this job", edit_job_path(job), class: "btn btn-xs btn-primary" %>
+                <%= link_to "Delete this job", job_path(job), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-xs btn-danger" %>
+            </div>
+            <% end %>
+        </div>
+    </div>
+</div>
+<% end %>
