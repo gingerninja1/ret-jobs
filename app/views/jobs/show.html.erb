@@ -22,7 +22,7 @@
         <p>Categories: <%= render @job.categories %></p>
     <% end %>
     <div class="job-actions">
-        <% if logged_in? && (current_user == @job.user || current_user.admin?) %>
+        <% if user_signed_in? && (current_user == @job.user || current_user.admin?) %>
         <%= link_to "Edit this job", edit_job_path(@job), class: "btn btn-xs btn-primary" %>
         <%= link_to "Delete this job", jobs_path(@job), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-xs btn-danger" %>
         <% end %>

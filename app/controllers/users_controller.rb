@@ -1,8 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:edit, :update, :show, :destroy]
   before_action :require_same_user, only: [:edit, :update, :destroy]
-  skip_before_action :authenticate_user!, except: [:index]
-  before_action :require_admin, only: [:destroy]
+  skip_before_action :authenticate_user!, except: [:index, :show]
   
   def index
     @users = User.paginate(page: params[:page], per_page: 5)
@@ -19,7 +18,7 @@ class UsersController < ApplicationController
   end
   
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :address_1, :address_2, :city, :state, :zip, :phone_1, :username, :email, :password, role_ids: [])
+    params.require(:user).permit(:first_name, :last_name, :address_1, :address_2, :city, :state, :zip, :country, :phone_1, :username, :email, :password, profile_attributes: [], role_ids: [])
   end
   
   def require_same_user

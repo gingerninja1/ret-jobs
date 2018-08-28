@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180820193409) do
+ActiveRecord::Schema.define(version: 20180823164246) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
@@ -33,11 +33,31 @@ ActiveRecord::Schema.define(version: 20180820193409) do
     t.datetime "updated_at"
   end
 
+  create_table "profiles", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "address_1"
+    t.string   "address_2"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zip"
+    t.string   "country"
+    t.string   "phone_1"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "roles", force: :cascade do |t|
     t.string   "name"
     t.string   "description"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "user_categories", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "category_id"
   end
 
   create_table "user_roles", force: :cascade do |t|
@@ -62,9 +82,11 @@ ActiveRecord::Schema.define(version: 20180820193409) do
     t.string   "unconfirmed_email"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.string   "username"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["username"], name: "index_users_on_username", unique: true
 
 end

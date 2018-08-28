@@ -1,11 +1,16 @@
-<h2>Categories</h2>
-<ul>
-    <% Category.all.each do |category| %>
-      <li><%= link_to "#{category.name}", category_path(category) %></li>
-    <% end %>
-    <li><%= link_to "All Categories", categories_path %></li>
-</ul>
+<section class="lc-section" id="categories">
+    <h3>Categories</h3>
+    <ul>
+        <% Category.all.each do |category| %>
+        <li><%= link_to "#{category.name}", category_path(category) %></li>
+        <% end %>
+        <li><%= link_to "All Categories", categories_path %></li>
+    </ul>
+</section>
 
-<h2>Directories</h2>
-<%= link_to "Neighbors", users_path %><br>
-<%= link_to "Jobs", jobs_path %>
+<section class="lc-section" id="directories">
+    <h3>Directories</h3>
+    <ul>
+        <li><%= link_to "Neighbors", users_path %></li>
+    </ul>
+</section>

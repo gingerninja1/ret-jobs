@@ -16,7 +16,7 @@
             <% if job.categories.any? %>
                 <p>Categories: <%= render job.categories %></p>
             <% end %>
-            <% if logged_in? && (current_user == job.user || current_user.admin?) %>
+            <% if user_signed_in? && (current_user == job.user) %>
             <div class="job-actions">
                 <%= link_to "Edit this job", edit_job_path(job), class: "btn btn-xs btn-primary" %>
                 <%= link_to "Delete this job", job_path(job), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-xs btn-danger" %>
