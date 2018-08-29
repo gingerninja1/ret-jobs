@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :images
   devise_for :users, :controllers => { :registrations => 'profiles' }
   root 'pages#index'
   
@@ -9,8 +10,8 @@ Rails.application.routes.draw do
   resources :jobs
   resources :categories, except: [:destroy]
   resources :roles, except: [:destroy]
-  resources :users, except: [:new]
-  resources :profile
+  resources :users, except: [:index, :new]
+  resources :profiles
   
   get 'neighbors', to: 'users#index'
 

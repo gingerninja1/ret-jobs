@@ -2,11 +2,31 @@
     <div class="col-md-4 col-md-offset-4 center">
     </div>
 </div>
-<h4><%= @user.first_name %> <%= @user.last_name %></h4>
+<img src="<%= @user_profile.avatar.url %>" alt="" />
+<h4><%= @user_profile.first_name %> <%= @user_profile.last_name %></h4>
 <small>Member since <%= @user.created_at %></small>
-<h4 class="center"><%= @user.username %>'s jobs</h4>
+<% if @user_profile.bio.present? %>
+                    <div class="bio">
+                        <h2>Bio</h2>
+                        <%= @user_profile.bio %>
+                    </div>
+                    <% end %>
+                    <% if @user_profile.skills.present? %>
+                    <div class="skills">
+                        <h2>Skills</h2>
+                        <%= @user_profile.skills %>
+                    </div>
+                    <% end %>
+                    <% if @user_profile.pricing.present? %>
+                    <div class="pricing">
+                        <h2>Pricing</h2>
+                        <%= @user_profile.pricing %>
+                    </div>
+                    <% end %>
+<% if current_user %>
 <p><button class="btn btn-primary send-message" data-toggle="modal" data-target="#message-modal">Message</button></p>
-
-<%= render 'jobs/job', obj: @user_jobs %>
+<% else %>
+<p><%= link_to "Sign Up to Contact", new_user_registration_path, class: 'btn btn-primary'  %></p>
+<% end %>
 
 <%= render partial: "message", locals: { user: @user } %>

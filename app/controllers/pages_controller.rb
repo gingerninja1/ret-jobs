@@ -1,6 +1,5 @@
 class PagesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:index, :about]
-
+  
   def index
   end
   
@@ -8,6 +7,10 @@ class PagesController < ApplicationController
   end
   
   def help
+  end
+  
+  def neighbors
+    @users = User.paginate(page: params[:page], per_page: 5)
   end
   
 end

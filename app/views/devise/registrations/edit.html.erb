@@ -44,6 +44,26 @@
         <%= p.label :phone_1 %>
         <%= p.text_field :phone_1, class: 'form-control' %>
       </div>
+      <div class="form-group">
+        <label>Profile Pic</label>
+        <p><img src="<%= current_user.profile.avatar.url %>" alt="" style="max-width:150px;" /></p>
+        <%= p.file_field :avatar, accept: 'image/jpeg,image/gif,image/png' %>
+      </div>
+      <div class="form-group">
+        <h2>Bio</h2>
+        <p>Enter a small bio about yourself:</p>
+        <%= p.text_area :bio, class: 'form-control' %>
+      </div>
+      <div class="form-group">
+        <h2>Skills</h2>
+        <p>Provide a list of skills that make you suitable for hiring:</p>
+        <%= p.text_area :skills, class: 'form-control' %>
+      </div>
+      <div class="form-group">
+        <h2>Pricing</h2>
+        <p>Enter your pricing information:</p>
+        <%= p.text_area :pricing, class: 'form-control' %>
+      </div>
       <% end %>
       <h2>Account Info</h2>
       <div class="form-group">

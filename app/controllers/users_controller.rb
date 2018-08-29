@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:edit, :update, :show, :destroy]
   before_action :require_same_user, only: [:edit, :update, :destroy]
-  skip_before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!, except: [:index, :show]
   
   def index
     @users = User.paginate(page: params[:page], per_page: 5)
@@ -9,6 +9,12 @@ class UsersController < ApplicationController
 
   def show
     @user_jobs = @user.jobs.paginate(page: params[:page], per_page: 5)
+    @user_profile = @user.profile
+  end
+  
+  def full_name
+    return "#{first_name} #{last_name}".strip if (first_name || last_name)
+    "Anonymous"
   end
   
   private

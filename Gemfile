@@ -7,7 +7,7 @@ gem 'rails', '4.2.8'
 gem 'devise'
 gem 'twitter-bootstrap-rails'
 gem 'devise-bootstrap-views'
-
+gem 'carrierwave', '~> 1.0'
 gem 'will_paginate', '~> 3.1.0'
 gem 'bootstrap-will_paginate', '~> 0.0.10'
 

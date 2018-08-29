@@ -11,13 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180823164246) do
+ActiveRecord::Schema.define(version: 20180829044851) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "images", force: :cascade do |t|
+    t.string   "name"
+    t.string   "picture"
+    t.integer  "profile_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "images", ["profile_id"], name: "index_images_on_profile_id"
 
   create_table "job_categories", force: :cascade do |t|
     t.integer "job_id"
@@ -46,6 +56,10 @@ ActiveRecord::Schema.define(version: 20180823164246) do
     t.string   "phone_1"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text     "bio"
+    t.text     "skills"
+    t.text     "pricing"
+    t.string   "avatar"
   end
 
   create_table "roles", force: :cascade do |t|
