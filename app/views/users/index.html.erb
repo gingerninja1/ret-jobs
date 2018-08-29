@@ -1,25 +1,5 @@
 <h1 class="center">Neighbors</h1>
-<div class="center">
-    <div><%= will_paginate %></div>
-    <% @users.each do |user| %>
-    <ul class="listing">
-        <div class="row">
-            <div class="well col-md-12">
-                <div class="col-md-2"></div>
-                <div class="col-md-10">
-                    <div class="user">
-                        <div><%= link_to "#{user.profile.first_name} #{user.profile.last_name}", user_path(user) %></div>
-                    </div>
-                    <% if current_user %>
-                    <p><button class="btn btn-primary send-message" data-toggle="modal" data-target="#message-modal">Message</button></p>
-                    <% else %>
-                    <p><%= link_to "Sign Up to Contact", new_user_registration_path, class: 'btn btn-primary'  %></p>
-                    <% end %>
-                </div>
-            </div>
-        </div>
-        <%= render partial: "message", locals: { user: user } %>
-    </ul>
-    <% end %>
-    <div><%= will_paginate %></div>
-</div>
+
+<div class="paginate"><%= will_paginate %></div>
+<%= render 'user', obj: @users %>
+<div class="paginate"><%= will_paginate %></div>

@@ -5,6 +5,10 @@
   </div>
   <div class="panel-body">
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+      <h2>Categories</h2>
+      <%= f.collection_check_boxes :category_ids, Category.all, :id, :name do |cb| %>
+          <% cb.label(class: "checkbox-inline input_checkbox") {cb.check_box(class: "checkbox") + cb.text} %>
+      <% end %>
       <%= f.fields_for :profile do |p| %>
       <h2>Personal Info</h2>
       <div class="form-group">

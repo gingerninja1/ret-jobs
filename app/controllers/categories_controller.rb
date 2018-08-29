@@ -32,7 +32,7 @@ class CategoriesController < ApplicationController
   end
   
   def show
-    @category_jobs = @category.jobs.paginate( page: params[:page], per_page: 5)
+    @category_users = @category.users.paginate( page: params[:page], per_page: 5)
   end
   
   private

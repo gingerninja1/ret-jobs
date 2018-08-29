@@ -1,3 +1,5 @@
+.paginate {text-align:center;}
+
 .user-name {
 padding: 0 !important ;
 padding-left: 5px;
@@ -12,6 +14,9 @@ padding: 5px!important;}
 a:hover, a:focus {
 color: #000 !important;}
 }
+
+
+/***** Navigation *****/
 
 .logout {padding-left: 0;}
 
@@ -33,7 +38,7 @@ padding: 8px;}
 
 .navbar-link:focus, .navbar-link:hover {
 background: #3071a9;
-color: #fff;}
+color: #333;}
 
 li a {margin-right: 5px;}
 
