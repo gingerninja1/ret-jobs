@@ -6,23 +6,80 @@
 <h4><%= @user_profile.first_name %> <%= @user_profile.last_name %></h4>
 <small>Member since <%= @user.created_at %></small>
 <% if @user_profile.bio.present? %>
-                    <div class="bio">
-                        <h2>Bio</h2>
-                        <%= @user_profile.bio %>
-                    </div>
-                    <% end %>
-                    <% if @user_profile.skills.present? %>
-                    <div class="skills">
-                        <h2>Skills</h2>
-                        <%= @user_profile.skills %>
-                    </div>
-                    <% end %>
-                    <% if @user_profile.pricing.present? %>
-                    <div class="pricing">
-                        <h2>Pricing</h2>
-                        <%= @user_profile.pricing %>
-                    </div>
-                    <% end %>
+<div class="bio">
+    <%= @user_profile.bio %>
+</div>
+<% end %>
+<% if @user_profile.skills.present? %>
+<div class="skills">
+    <h2>Skills</h2>
+    <%= @user_profile.skills %>
+</div>
+<% end %>
+<% if @user_profile.pricing.present? %>
+<div class="pricing">
+    <h2>Pricing</h2>
+    <%= @user_profile.pricing %>
+</div>
+<% end %>
+<div class="row">
+    <div class="col-md-6">
+        <% if current_user %>
+        <form action="<%= reviews_path %>" method="post">
+            <div class="stars">
+                <ul>
+                    <li>
+                        <input id="rating-1" name="review[rating]" type="radio" value="1">
+                        <label for="rating-1">Will not be using their service again.</label>
+                    </li>
+                    <li>
+                        <input id="rating-2" name="review[rating]" type="radio" value="2">
+                        <label for="rating-2">I've experienced better.</label>
+                    </li>
+                    <li>
+                        <input id="rating-3" name="review[rating]" type="radio" value="3">
+                        <label for="rating-3">They're alright.</label>
+                    </li>
+                    <li>
+                        <input id="rating-4" name="review[rating]" type="radio" value="4">
+                        <label for="rating-4">I'm a fan.</label>
+                    </li>
+                    <li>
+                        <input id="rating-5" name="review[rating]" type="radio" value="5">
+                        <label for="rating-5">Won't find anyone better!</label>
+                    </li>
+                </ul>
+            </div>
+            <div class="form-fields">
+                <textarea name="review[review]" id="review-text" class='form-control' placeholder="Start your review..."></textarea>
+                <div class="addl_info">
+                    <div class="name"><small>Posted by: <%= current_user.profile.full_name %></small></div>
+                    <div class="hired"><input type="checkbox" name="review[interaction]" /> <label>I Hired This Neighbor</label></div>
+                </div>
+                <input type="hidden" name="review[profile_id]" value="<%= @user_profile.id %>"/>
+                <input type="submit" value="Submit Review" class="btn btn-primary" />
+            </div>
+        </form>
+        <% end %>
+    </div>
+    <div class="col-md-6">
+        <div class="reviews">
+            <h2>Reviews</h2>
+            <% @reviews.each do |review| %>
+            <div class="review">
+                <h2><%= review.title %></h2>
+                <div class="rating"><div class="stars"><div class="stars-<%= review.rating %>"></div></div> <%= review.created_at.strftime("%B %d, %Y") %></div>
+                <div class="detail"><p><%= review.review %></p></div>
+                <div class="posted-by">
+                    <img src="<%= review.profile.avatar.url %>" alt="" style="border-radius:50%;height:30px;width:30px;" />
+                    <label><%= review.profile.first_name %></label>
+                </div>
+            </div>
+            <% end %>
+        </div>
+    </div>
+</div>
+
 <% if current_user %>
 <p><button class="btn btn-primary send-message" data-toggle="modal" data-target="#message-modal">Message</button></p>
 <% else %>
@@ -30,3 +87,59 @@
 <% end %>
 
 <%= render partial: "message", locals: { user: @user } %>
+
+
+<script>
+$(document).ready(function() {
+var myRating = '';
+$('input[name="review[rating]"]').hover(function() {
+    var cRating = $(this).val();
+    $('.stars ul').attr('class','stars-'+cRating);
+    $('.help').text($('label[for=rating-'+cRating).text());
+
+    $('input[name="review[rating]"]').click(function() {
+        myRating = $(this).val();
+        $('.stars ul').attr('class','stars-'+myRating);
+        $('.help').text($('label[for=rating-'+myRating).text());
+    })
+    }, function() {
+    if (!$('input[name="review[rating]"]').is(':checked')) {
+        $('.stars ul').attr('class', '');
+        $('.help').text('Select your rating.');
+    } else {
+        $('.stars ul').attr('class','stars-'+myRating);
+        $('.help').text($('label[for=rating-'+myRating).text());
+    }
+});
+
+$('#submitReview form').on('submit',function() {
+    var errors, form, selection = false;
+    if (inProcess) return false;
+    inProcess = true;
+    errors = [];
+
+    if (!$('input[name="review[rating]"]').is(':checked')) {
+        errors.push("Please enter a rating.");
+    }
+    /*if ($("textarea[name='review[review]']").val() == '') {
+        errors.push("Please enter a review.");
+    }
+    if (!validateEmail($('input[name="review[email]"]').val())) {
+        errors.push("Please enter an email address for your review.");
+    }
+    if (!validateString($('input[name="review[name]"]').val(), 3, 255)) {
+        errors.push("Please enter a name for your review.");
+    }*/
+    if ($("#recaptcha_response_field").val() == '') {
+        errors.push("Please enter a value for CAPTCHA.")
+    }
+
+    if (errors.length > 0) {
+        alert(errors.join('\n'));
+        inProcess = false;
+        return false;
+    }
+    return true;
+});
+});
+</script>

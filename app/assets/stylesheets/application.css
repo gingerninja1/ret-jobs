@@ -43,3 +43,67 @@ font-size: 22pt;}
 ul.listing {
 margin:0;
 padding:0;}
+
+
+/***** Reviews *****/
+
+.stars {
+display: inline-block;
+vertical-align: middle;}
+
+.stars ul,
+.reviews .review .stars {
+background: url(/assets/rating_stars2.png) no-repeat 0 0;
+height: 25px;
+margin: 0;
+padding: 0 0 0 3px;}
+
+.reviews .review .stars {width:135px;}
+
+.stars .stars-1 {
+background-position: 0 -50px;
+}
+
+.stars .stars-2 {
+background-position: 0 -100px;
+}
+
+.stars .stars-3 {
+background-position: 0 -150px;
+}
+
+.stars .stars-4 {
+background-position: 0 -200px;
+}
+
+.stars .stars-5 {
+background-position: 0 -250px;
+}
+
+.stars li {
+float: left;
+height: 25px;
+width: 26px;
+overflow: hidden;}
+
+.stars li input {
+border: none;
+margin: 0;
+padding: 0;
+width: 26px;
+height: 25px;
+-moz-opacity: 0;
+opacity: 0;
+filter: alpha(opacity=0);
+-webkit-appearance: none;
+-moz-appearance: none;
+appearance: none;}
+
+
+/***** User Profile Page *****/
+
+.review {margin-bottom:20px;}
+
+.review h2 {font-size:14pt;}
+
+.review .rating {margin-bottom:20px;}

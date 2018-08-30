@@ -10,6 +10,7 @@ class UsersController < ApplicationController
   def show
     @user_jobs = @user.jobs.paginate(page: params[:page], per_page: 5)
     @user_profile = @user.profile
+    @reviews = @user.profile.reviews
   end
   
   def full_name
