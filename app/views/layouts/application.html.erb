@@ -31,19 +31,19 @@
             <!-- Search will go here -->
           </ul>
           <ul class="nav navbar-right col-md-6">
-            <li><%= link_to "About", about_path  %></li>
-            <li><%= link_to "Help", help_path  %></li>
+            <li><%= link_to "About", about_path, class: 'btn btn-xs'  %></li>
+            <li><%= link_to "Help", help_path, class: 'btn btn-xs'  %></li>
           <% if current_user %>
           
-          <li class="user-name">
-            <%= link_to 'Welcome, ' + current_user.profile.first_name, edit_user_registration_path, title: 'Edit Profile' %>
+          <li>
+            <%= link_to 'Welcome, ' + current_user.profile.first_name, edit_user_registration_path, class: 'btn btn-xs', title: 'Edit Profile' %>
           </li>
           <li> </li>
-          <li class="logout"><%= link_to('Logout', destroy_user_session_path, class: 'btn btn-xs btn-danger', title: 'Logout', :method => :delete) %></li>
+          <li class="logout"><%= link_to('Logout', destroy_user_session_path, class: 'btn btn-xs', title: 'Logout', :method => :delete) %></li>
           
           <% else %>
-          <li><%= link_to "Sign Up", new_user_registration_path  %></li>
-          <li><%= link_to 'Log In', new_user_session_path %></li>
+          <li><%= link_to "Sign Up", new_user_registration_path, class: 'btn btn-xs'  %></li>
+          <li><%= link_to 'Log In', new_user_session_path, class: 'btn btn-xs' %></li>
           <% end %>
           
           </ul>
@@ -53,10 +53,12 @@
 
     <div class="container">
       <div class="row">
-        <div id="left-column" class="col-md-3"><%= render 'layouts/left_column' %></div>
-        <div class="col-md-9">
+        <div id="left-column" class="col-md-3"><div class="inner"><%= render 'layouts/left_column' %></div></div>
+        <div id="right-column" class="col-md-9">
+          <div class="inner">
           <%= bootstrap_flash %>
           <%= yield %>
+          </div>
         </div>
       </div><!--/row-->
 

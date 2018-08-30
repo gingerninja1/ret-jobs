@@ -14,3 +14,32 @@
  *= require_tree .
  *= require_self
  */
+
+body {
+background-color:#e7e7e7;}
+
+.no-marg {
+margin-right:0;
+margin-left:0;}
+
+#left-column .inner,
+#right-column .inner {
+background: #fff;
+padding: 25px 15px;
+border-radius: 5px;}
+
+#left-column section {
+margin-bottom:20px;}
+
+#left-column h3 {
+font-size:16pt;
+margin:0 0 10px;
+padding:0;}
+
+#right-column h1 {
+margin: 0 0 20px;
+font-size: 22pt;}
+
+ul.listing {
+margin:0;
+padding:0;}
