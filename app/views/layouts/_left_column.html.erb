@@ -14,3 +14,12 @@
         <li><%= link_to "Neighbors", neighbors_path %></li>
     </ul>
 </section>
+
+<% if current_user %>
+<section>
+    <h3>Links</h3>
+    <ul>
+        <li><%= link_to "My Reviews", my_reviews_path %></li>
+    </ul>
+</section>
+<% end %>

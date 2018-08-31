@@ -1,0 +1,13 @@
+<h1>My Reviews</h1>
+
+<% @my_reviews.each do |review| %>
+<div class="review">
+    <h2><%= review.title %></h2>
+    <div class="rating"><div class="stars"><div class="stars-<%= review.rating %>"></div></div> <%= review.created_at.strftime("%B %d, %Y") %></div>
+    <div class="detail"><p><%= review.review %></p></div>
+    <div class="posted-by">
+        <img src="<%= review.user.profile.avatar.url %>" alt="" style="border-radius:50%;height:30px;width:30px;" />
+        <label><%= review.user.profile.first_name %></label>
+    </div>
+</div>
+<% end %>

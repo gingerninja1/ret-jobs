@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   
   get 'about', to: 'pages#about'
   get 'help', to: 'pages#help'
+  get 'my_reviews', to: 'reviews#my_reviews'
   
   #resources :articles
   resources :jobs

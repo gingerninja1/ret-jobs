@@ -13,11 +13,6 @@ class UsersController < ApplicationController
     @reviews = @user.profile.reviews
   end
   
-  def already_posted_review?(profile)
-    check = current_user.reviews.where(profile_id: profile.id)
-    return check.nil? ? false : true
-  end
-  
   private
   
   def set_user

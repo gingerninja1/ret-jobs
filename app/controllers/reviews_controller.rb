@@ -61,6 +61,10 @@ class ReviewsController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  def my_reviews
+    @my_reviews = Review.where(profile_id: current_user.profile.id).all
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
