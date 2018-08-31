@@ -15,6 +15,7 @@ class ReviewsController < ApplicationController
   # GET /reviews/new
   def new
     @review = Review.new
+    
   end
 
   # GET /reviews/1/edit
@@ -32,7 +33,7 @@ class ReviewsController < ApplicationController
         format.json { render :show, status: :created, location: @review }
       else
         format.html { render :new }
-        format.json { render json: @review.errors, status: :unprocessable_entity }
+        format.json { render json: @review.profile.user.errors, status: :unprocessable_entity }
       end
     end
   end

@@ -18,6 +18,8 @@
 body {
 background-color:#e7e7e7;}
 
+img {max-width:100%;}
+
 .no-marg {
 margin-right:0;
 margin-left:0;}
@@ -101,6 +103,14 @@ appearance: none;}
 
 
 /***** User Profile Page *****/
+
+#profile-header {margin-bottom:20px;}
+
+#profile-header h3 {
+margin:0;
+padding:0;}
+
+.message {text-align:right;}
 
 .review {margin-bottom:20px;}
 
