@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
   has_one :profile
   has_many :user_categories
   has_many :categories, through: :user_categories
+  has_many :reviews
 
   accepts_nested_attributes_for :profile, :categories
   
