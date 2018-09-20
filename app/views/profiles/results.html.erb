@@ -1,0 +1,21 @@
+<h1>Search Results</h1>
+
+<% if params[:action] == 'search' %>
+<div class="results-block">
+    <%= bootstrap_flash %>
+</div>
+<% end %>
+<% if @profiles %>
+<% @profiles.each do |profile| %>
+<div class="well results-block">
+    <strong>Neighbor: </strong><%= profile.full_name %>
+    <strong>Bio: </strong><%= profile.bio %>
+    <strong>Skills: </strong><%= profile.skills %>
+    <strong>Skills: </strong><%= profile.skills %>
+    <strong>Categories: </strong><h3>
+      <% profile.user.categories.each do |c| %>
+          <label><%= c.name %></label>
+      <% end %>
+</div>
+<% end %>
+<% end %>

@@ -6,4 +6,8 @@ class Profile < ActiveRecord::Base
   def full_name
     return "#{first_name} #{last_name}".strip if (first_name || last_name)
   end
+  
+  def self.search(search)
+    where("first_name LIKE ? OR last_name LIKE ? OR bio LIKE ? OR skills LIKE ? OR categories.name LIKE ?", "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%") 
+  end
 end

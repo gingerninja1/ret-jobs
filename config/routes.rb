@@ -16,6 +16,10 @@ Rails.application.routes.draw do
   resources :profiles
   
   get 'neighbors', to: 'users#index'
+  
+  devise_scope :user do
+    get 'search', to: 'profiles#search'
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

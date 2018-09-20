@@ -23,7 +23,24 @@ background-color: #3071A9;
 border-color: #204C72;}
 
 .navbar-default .navbar-brand {
-color: #fff;}
+color: #fff;
+float: left;
+padding: 0;
+font-size: 24px;
+line-height: 60px;
+height: 60px;}
+
+#search-form {
+float: left;
+padding: 14px 0 0 30px;}
+
+#search-form input {
+height: 34px;
+vertical-align: middle;}
+
+#search-form .form-control {
+display: inline-block;
+width: 250px;}
 
 .nav a {color:#fff}
 
@@ -80,11 +97,20 @@ margin-top: 5%;}
 margin:0;
 padding:0;
 list-style:none;}
+
+
+/***** Page Headers *****/
+
+.panel-default>.panel-heading {
+background: none;
+border: 0;}
+
+.panel-default>.panel-heading h2 {margin: 0;}
  
  
 /***** Footer *****/
 
 footer {
 margin-top: 30px;
-border-top: 1px solid #eaeaea;
+border-top: 1px rgba(0, 0, 0, 0.1) solid;
 padding: 20px 0;}
