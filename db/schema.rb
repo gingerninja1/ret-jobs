@@ -11,10 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180920133339) do
+ActiveRecord::Schema.define(version: 20180921140602) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "conversations", force: :cascade do |t|
+    t.integer  "sender_id"
+    t.integer  "recipient_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -42,6 +49,18 @@ ActiveRecord::Schema.define(version: 20180920133339) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "messages", force: :cascade do |t|
+    t.text     "body"
+    t.integer  "conversation_id"
+    t.integer  "user_id"
+    t.boolean  "read",            default: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "messages", ["conversation_id"], name: "index_messages_on_conversation_id"
+  add_index "messages", ["user_id"], name: "index_messages_on_user_id"
 
   create_table "profiles", force: :cascade do |t|
     t.integer  "user_id"
