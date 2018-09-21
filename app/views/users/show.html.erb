@@ -18,7 +18,7 @@
     </div>
     <div class="message col-md-6">
         <% if current_user %>
-        <p><button class="btn btn-primary send-message" data-toggle="modal" data-target="#message-modal">Message</button></p>
+        <%= link_to 'Send Message', conversations_path(sender_id: current_user.id, recipient_id: @user.id), method: 'post', class: 'btn btn-primary send-message' %>
         <% else %>
         <p><%= link_to "Sign Up to Contact", new_user_registration_path, class: 'btn btn-primary'  %></p>
         <% end %>
@@ -104,10 +104,7 @@
             <% end %>
         </div>
     </div>
-</div>
-
-<%= render partial: "message", locals: { user: @user } %>
-
+</div>versations_path(sender_id: current_user.id, recipient_id: user.id) } %>
 
 <script>
 $(document).ready(function() {

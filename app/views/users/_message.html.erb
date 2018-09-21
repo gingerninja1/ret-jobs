@@ -9,16 +9,15 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form class='send-msg' action="/send_email/" method="post">
-                    <div class="form-group">
-                        <label>Neighbor:</label> <%= user.profile.full_name %>
+                <%= form_for [@conversation, @message], html: {class: "ui reply form"} do |f| %>
+                    <div class="field">
+                        <%= f.text_area :body, class: "form-control" %>
                     </div>
-                    <div class="form-group">
-                        <label>Message</label>
-                        <textarea name="msg" placeholder="Enter your message" class="form-control"></textarea>
+                        <%= f.text_field :user_id, value: current_user.id, type: "hidden" %>
+                    <div>
+                        <%= f.submit "Add Reply", class: "ui blue labeled submit icon button" %>
                     </div>
-                    <input type="hidden" value="<%= action_name %>" />
-                </form>
+                <% end %>
             </div>
             <div class="modal-footer">
                 <button id="msg-submit" type="button" class="btn btn-primary" data-dismiss="modal">Send Message</button>
