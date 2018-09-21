@@ -5,6 +5,14 @@
             <div class="col-md-8">
                 <h3><%= @user_profile.first_name %> <%= @user_profile.last_name %></h3>
                 <small>Member since: <%= @user.created_at.strftime("%B %d, %Y") %></small>
+                <div id="social-icons">
+                    <%- if @user_profile.social_fb.present? -%>
+                        <a href="<%= @user_profile.social_fb %>"><img src="/assets/icon_facebook.png" alt="Facebook"></a>
+                    <%- end -%>
+                    <%- if @user_profile.social_in.present? -%>
+                        <a href="<%= @user_profile.social_in %>"><img src="/assets/icon_linkedin.png" alt="LinkedIn"></a>
+                    <%- end -%>
+                </div>
             </div>
         </div>
     </div>

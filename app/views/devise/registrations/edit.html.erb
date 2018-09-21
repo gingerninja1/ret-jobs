@@ -2,6 +2,7 @@
 <div class="panel-default devise-bs">
   <div class="panel-heading">
     <h2><%= t('.title', resource: resource_class.model_name.human , default: "Edit #{resource_name.to_s.humanize}") %></h2>
+    <a href="<%= user_path(@user) %>">View Profile</a>
   </div>
   <div class="panel-body">
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
