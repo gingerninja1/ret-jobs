@@ -1,74 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= content_for?(:title) ? yield(:title) : "HireNeighbors" %></title>
-    <%= csrf_meta_tags %>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title><%= content_for?(:title) ? yield(:title) : "HireNeighbors" %></title>
+<%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag "application", :media => "all" %>
+<%= stylesheet_link_tag "application", :media => "all" %>
 
-    <%= javascript_include_tag "application" %>
+<%= javascript_include_tag "application" %>
 
-    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
-    <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js" type="text/javascript"></script>
-    <![endif]-->
-  </head>
-  <body>
+<!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+<!--[if lt IE 9]>
+<script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js" type="text/javascript"></script>
+<![endif]-->
+</head>
+<body>
 
-    <div class="navbar navbar-default navbar-static-top">
-      <div class="container">
+<div class="navbar navbar-default navbar-static-top">
+    <div class="container">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
         </button>
         <a class="navbar-brand" href="<%= root_path %>">HireNeighbors</a>
+        <%- unless action_name == "index" -%>
         <%= form_tag(search_path, :method => "get", id: "search-form") do %>
             <%= text_field_tag :search, params[:search], placeholder: "Search for a neighbor", class: 'form-control' %>
             <%= submit_tag "Search", :name => nil, :class => 'btn btn-md' %>
         <% end %>
+        <%- end -%>
         <div class="navbar-collapse collapse navbar-responsive-collapse">
-          <ul class="nav navbar-nav">
+            <ul class="nav navbar-nav">
             <!-- Search will go here -->
-          </ul>
-          <ul class="nav navbar-right col-md-6">
-            <li><%= link_to "About", about_path, class: 'btn btn-xs'  %></li>
-            <li><%= link_to "Help", help_path, class: 'btn btn-xs'  %></li>
-          <% if current_user %>
-          
-          <li>
-            <%= link_to 'Welcome, ' + current_user.profile.first_name, edit_user_registration_path, class: 'btn btn-xs', title: 'Edit Profile' %>
-          </li>
-          <li> </li>
-          <li class="logout"><%= link_to('Logout', destroy_user_session_path, class: 'btn btn-xs', title: 'Logout', :method => :delete) %></li>
-          
-          <% else %>
-          <li><%= link_to "Sign Up", new_user_registration_path, class: 'btn btn-xs'  %></li>
-          <li><%= link_to 'Log In', new_user_session_path, class: 'btn btn-xs' %></li>
-          <% end %>
-          
-          </ul>
+            </ul>
+            <ul class="nav navbar-right col-md-6">
+                <li><%= link_to "About", about_path, class: 'btn btn-xs'  %></li>
+                <li><%= link_to "Help", help_path, class: 'btn btn-xs'  %></li>
+                <% if current_user %>
+                
+                <li>
+                <%= link_to 'Welcome, ' + current_user.profile.first_name, edit_user_registration_path, class: 'btn btn-xs', title: 'Edit Profile' %>
+                </li>
+                <li> </li>
+                <li class="logout"><%= link_to('Logout', destroy_user_session_path, class: 'btn btn-xs', title: 'Logout', :method => :delete) %></li>
+                
+                <% else %>
+                <li><%= link_to "Sign Up", new_user_registration_path, class: 'btn btn-xs'  %></li>
+                <li><%= link_to 'Log In', new_user_session_path, class: 'btn btn-xs' %></li>
+                <% end %>
+            </ul>
         </div>
-      </div>
     </div>
+</div>
 
+<%- if action_name == "index" -%>
+<div id="hero-image">
     <div class="container">
-      <div class="row">
+        <div class="row">
+            <div class="col-md-12">
+                <div id="index-search">
+                    <h2>Find a neighbor near you</h2>
+                    <%= form_tag(search_path, :method => "get", id: "search-form") do %>
+                        <%= text_field_tag :search, params[:search], placeholder: "Search for a neighbor", class: 'form-control' %>
+                        <%= submit_tag "Search", :name => nil, :class => 'btn btn-md' %>
+                    <% end %>
+                </div>  
+            </div>
+        </div>
+    </div>
+</div>
+<%- end -%>
+
+<div class="container">
+    <div class="row">
+        <%- if action_name = "index" %>
+        <div class="col-md-12"><%= yield %></div>
+        <%- else -%>
         <div id="left-column" class="col-md-3"><div class="inner"><%= render 'layouts/left_column' %></div></div>
         <div id="right-column" class="col-md-9">
-          <div class="inner">
-          <%= bootstrap_flash %>
-          <%= yield %>
-          </div>
+            <div class="inner">
+                <%= bootstrap_flash %>
+                <%= yield %>
+            </div>
         </div>
-      </div><!--/row-->
+        <%- end -%>
+    </div><!--/row-->
 
-      <%= render 'layouts/footer' %>
+    <%= render 'layouts/footer' %>
 
-    </div> <!-- /container -->
+</div> <!-- /container -->
 
-  </body>
+</body>
 </html>

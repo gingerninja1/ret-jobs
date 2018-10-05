@@ -24,6 +24,34 @@ img {max-width:100%;}
 margin-right:0;
 margin-left:0;}
 
+.navbar {margin-bottom: 0;}
+
+#hero-image {
+background: url(/assets/hero-image.jpg) 0 -210px no-repeat;
+background-size: 100% auto;
+height: 470px;
+position: relative;}
+
+#hero-image #index-search {
+background: rgba(100, 100, 100, 0.7);
+padding: 20px;
+border-radius: 5px;
+max-width: 450px;
+text-align: center;
+margin: 100px auto 0;
+color:#fff;}
+
+#hero-image #index-search h2 {
+margin: 0;
+padding: 0;}
+
+#hero-image #index-search #search-form {
+float: none;
+padding: 0;
+margin-top: 15px;}
+
+#hero-image #index-search #search-form .btn {background: #3071A9;}
+
 #left-column .inner,
 #right-column .inner {
 background: #fff;
