@@ -24,9 +24,8 @@ img {max-width:100%;}
 margin-right:0;
 margin-left:0;}
 
-.navbar {margin-bottom: 0;}
-
 #hero-image {
+margin-top: -20px;
 background: url(/assets/hero-image.jpg) 0 -210px no-repeat;
 background-size: 100% auto;
 height: 470px;
