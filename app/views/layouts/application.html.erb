@@ -40,13 +40,13 @@
                 <li><%= link_to "About", about_path, class: 'btn btn-xs'  %></li>
                 <li><%= link_to "Help", help_path, class: 'btn btn-xs'  %></li>
                 <% if current_user %>
-                
-                <li>
-                <%= link_to 'Welcome, ' + current_user.profile.first_name, edit_user_registration_path, class: 'btn btn-xs', title: 'Edit Profile' %>
+                <li id="profile-info">
+                    <img id="profile-pic" src="<%= current_user.profile.avatar.url %>" alt="" style="max-width:30px;border-radius:15px;" />
+                    <ul>
+                        <li><%= link_to 'Edit Profile', edit_user_registration_path %></li>
+                        <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
+                    </ul>
                 </li>
-                <li> </li>
-                <li class="logout"><%= link_to('Logout', destroy_user_session_path, class: 'btn btn-xs', title: 'Logout', :method => :delete) %></li>
-                
                 <% else %>
                 <li><%= link_to "Sign Up", new_user_registration_path, class: 'btn btn-xs'  %></li>
                 <li><%= link_to 'Log In', new_user_session_path, class: 'btn btn-xs' %></li>

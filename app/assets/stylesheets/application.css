@@ -24,6 +24,40 @@ img {max-width:100%;}
 margin-right:0;
 margin-left:0;}
 
+
+/***** Header *****/
+
+#profile-info {
+position:relative;}
+
+#profile-info ul {
+position:absolute;
+right:-999em;
+background:#fff;
+border:1px solid #ccc;
+width:250px;}
+
+#profile-info ul li:first-child {border-top:0;}
+
+#profile-info ul li {
+display: block;}
+
+#profile-info ul li a {
+display: block;
+padding: 10px 16px;}
+
+#profile-info ul li a:hover {
+background:none;
+text-decoration:none;
+color:#000;}
+
+#profile-info ul li a div {border-bottom: 1px solid #ccc;}
+
+#profile-info:hover ul {right:0;}
+
+
+/***** Index *****/
+
 #hero-image {
 margin-top: -20px;
 background: url(/assets/hero-image.jpg) 0 -210px no-repeat;
@@ -149,6 +183,11 @@ filter: alpha(opacity=0);
 -webkit-appearance: none;
 -moz-appearance: none;
 appearance: none;}
+
+
+/***** Edit Profile Page *****/
+
+
 
 
 /***** User Profile Page *****/
