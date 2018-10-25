@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180921140602) do
+ActiveRecord::Schema.define(version: 20181015163928) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
@@ -81,6 +81,7 @@ ActiveRecord::Schema.define(version: 20180921140602) do
     t.string   "avatar"
     t.string   "social_fb"
     t.string   "social_in"
+    t.string   "ptype"
   end
 
   create_table "reviews", force: :cascade do |t|

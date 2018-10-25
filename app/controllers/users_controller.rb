@@ -20,7 +20,7 @@ class UsersController < ApplicationController
   end
   
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :address_1, :address_2, :city, :state, :zip, :country, :phone_1, :social_fb, :social_in, :username, :email, :password, profile_attributes: [], role_ids: [])
+    params.require(:user).permit(:first_name, :last_name, :address_1, :address_2, :city, :state, :zip, :country, :phone_1, :social_fb, :social_in, :ptype, :username, :email, :password, profile_attributes: [], role_ids: [])
   end
   
   def require_same_user

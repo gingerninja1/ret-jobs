@@ -41,7 +41,7 @@
                 <li><%= link_to "Help", help_path, class: 'btn btn-xs'  %></li>
                 <% if current_user %>
                 <li id="profile-info">
-                    <img id="profile-pic" src="<%= current_user.profile.avatar.url %>" alt="" style="max-width:30px;border-radius:15px;" />
+                    <img src="<%= current_user.profile.avatar.url %>" alt="" />
                     <ul>
                         <li><%= link_to 'Edit Profile', edit_user_registration_path %></li>
                         <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>

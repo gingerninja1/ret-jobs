@@ -16,7 +16,9 @@
  */
 
 body {
-background-color:#F4F4F7;}
+background-color:#F4F4F7;
+font-family: 'Lato', sans-serif;
+}
 
 img {max-width:100%;}
 
@@ -27,12 +29,18 @@ margin-left:0;}
 
 /***** Header *****/
 
+.navbar-right li {vertical-align: top;}
+
+.nav>li>a {font-size:10pt;}
+
 #profile-info {
-position:relative;}
+position:relative;
+padding:10px 15px;}
 
 #profile-info ul {
 position:absolute;
-right:-999em;
+top:-999em;
+right:0;
 background:#fff;
 border:1px solid #ccc;
 width:250px;}
@@ -53,7 +61,11 @@ color:#000;}
 
 #profile-info ul li a div {border-bottom: 1px solid #ccc;}
 
-#profile-info:hover ul {right:0;}
+#profile-info:hover ul {top:44px;}
+
+#profile-info img {
+max-width: 30px;
+border-radius: 15px;}
 
 
 /***** Index *****/
