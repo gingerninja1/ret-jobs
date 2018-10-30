@@ -16,39 +16,6 @@ color: #000 !important;}
 }
 
 
-/***** Header *****/
-
-.navbar-default {
-background-color: #3071A9;
-border-color: #204C72;}
-
-.navbar-default .navbar-brand {
-color: #fff;
-float: left;
-padding: 0;
-font-size: 24px;
-line-height: 60px;
-height: 60px;}
-
-#search-form {
-float: left;
-padding: 14px 0 0 30px;}
-
-#search-form input {
-height: 34px;
-vertical-align: middle;}
-
-#search-form .form-control {
-display: inline-block;
-width: 250px;}
-
-.nav a {color:#fff}
-
-.nav a.btn:visited {color:#fff}
-
-.nav a.btn:hover {color:#333}
-
-
 /***** Navigation *****/
 
 .logout {padding-left: 0;}
@@ -107,11 +74,3 @@ border: 0;}
 .panel-default>.panel-heading h2 {margin: 0;}
 
 #social-icons img {width: 34px;}
- 
- 
-/***** Footer *****/
-
-footer {
-margin-top: 30px;
-border-top: 1px rgba(0, 0, 0, 0.1) solid;
-padding: 20px 0;}

@@ -26,8 +26,55 @@ img {max-width:100%;}
 margin-right:0;
 margin-left:0;}
 
+.btn-primary {
+padding: 10px 20px;
+font-size: 11pt;
+text-transform: uppercase;}
+
+.form-row {
+border-bottom: 1px solid #eaeaea;
+padding: 20px 0;}
+
+.form-row:last-child {border-bottom: none;}
+
+.submit-container {text-align:center;}
+
+h2 {    
+text-transform: uppercase;
+text-shadow: 1px 1px 1px #ccc;}
+
 
 /***** Header *****/
+
+.navbar-default {
+background-color: #3071A9;
+border-color: #204C72;}
+
+.navbar-default .navbar-brand {
+color: #fff;
+float: left;
+padding: 0;
+font-size: 24px;
+line-height: 60px;
+height: 60px;}
+
+#search-form {
+float: left;
+padding: 14px 0 0 30px;}
+
+#search-form input {
+height: 33px;
+vertical-align: middle;}
+
+#search-form .form-control {
+display: inline-block;
+width: 250px;}
+
+.nav a {color:#fff}
+
+.nav a.btn:visited {color:#fff}
+
+.nav a.btn:hover {color:#333}
 
 .navbar-right li {vertical-align: top;}
 
@@ -199,10 +246,18 @@ appearance: none;}
 
 /***** Edit Profile Page *****/
 
-
+#profile-pic {margin-top: 20px;}
 
 
 /***** User Profile Page *****/
+
+#new_user h4,
+#edit_user h4 {
+text-transform: uppercase;
+color: #a7a7a7;
+margin: 0;
+padding: 0;
+font-size: 11pt;}
 
 #profile-header {margin-bottom:20px;}
 
@@ -217,3 +272,11 @@ padding:0;}
 .review h2 {font-size:14pt;}
 
 .review .rating {margin-bottom:20px;}
+
+
+/***** Footer *****/
+
+footer {
+margin-top: 30px;
+border-top: 1px rgba(0, 0, 0, 0.1) solid;
+padding: 20px 0;}
