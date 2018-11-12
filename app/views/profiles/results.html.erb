@@ -8,14 +8,11 @@
 <% if @profiles %>
 <% @profiles.each do |profile| %>
 <div class="well results-block">
-    <strong>Neighbor: </strong><%= link_to profile.full_name, user_path(profile.user) %> 
-    <strong>Bio: </strong><%= profile.bio %>
-    <strong>Skills: </strong><%= profile.skills %>
-    <strong>Skills: </strong><%= profile.skills %>
-    <strong>Categories: </strong><h3>
-      <% profile.user.categories.each do |c| %>
-          <label><%= c.name %></label>
-      <% end %>
+    <h3><%= link_to profile.full_name, user_path(profile.user) %></h3>
+    <p><strong>Bio: </strong><%= profile.bio %></p>
+    <p><strong>Skills: </strong><%= profile.skills %></p>
+    <p><strong>Categories: </strong><br>
+    <%= profile.user.categories.map { |c| c.name }.join(', ') %>
 </div>
 <% end %>
 <% end %>
