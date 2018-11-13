@@ -1,29 +1,26 @@
-<div class=”ui segment”>
- <h3>Mailbox</h3>
- <div class=”ui list”>
-  <div class=”item”>
-   <% @conversations.each do |conversation| %>
-   <% if conversation.sender_id == current_user.id ||      conversation.recipient_id == current_user.id %>
-    <% if conversation.sender_id == current_user.id %>
-      <% recipient = User.find(conversation.recipient_id) %>
-    <% else %>
-      <% recipient = User.find(conversation.sender_id) %>
-    <% end %>
-    <%= link_to recipient.profile.first_name,   conversation_messages_path(conversation)%>
-   <% end %>
-  <% end %>
+<h1>Conversations</h1>
+
+<div class="ui segment">
+  <h3>Mailbox</h3>
+  <div id="conversations" class="ui list">
+    <div class="header row">
+      <div class="from col-md-9">From</div>
+      <div class="received_at col-md-3">Received</div>
+    </div>
+    <div class="item row">
+      <% @conversations.each do |conversation| %>
+        <% if conversation.sender_id == current_user.id || conversation.recipient_id == current_user.id %>
+          <div class="from col-md-9">
+          <% if conversation.sender_id == current_user.id %>
+            <% recipient = User.find(conversation.recipient_id) %>
+          <% else %>
+            <% recipient = User.find(conversation.sender_id) %>
+          <% end %>
+          <%= link_to recipient.profile.first_name,   conversation_messages_path(conversation)%>
+          </div>
+          <div class="received_at col-md-3"><%= conversation.updated_at.to_formatted_s(:long) %></div>
+        <% end %>
+      <% end %>
+    </div>
   </div>
- </div>
-</div>
-<div class=”ui segment”>
- <h3>All Users</h3>
-  <div class=”ui list”>
-   <% @users.each do |user| %>
-    <% if user.id != current_user.id %>
-     <div class=”item”>
-   <%= user.profile.first_name %> <%= link_to 'Message me!', conversations_path(sender_id: current_user.id, recipient_id: user.id), method: 'post' %>
- </div>
-  <% end %>
- <% end %>
- </div>
 </div>
