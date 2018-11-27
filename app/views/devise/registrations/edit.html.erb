@@ -20,8 +20,8 @@
           <div class="form-group">
             <label>What do you want to do?</label>
             <div class="row">
-              <div class="col-md-6"><%= p.check_box :ptype, {:multiple => true}, "job_poster" %> Hire Someone</div>
-              <div class="col-md-6"><%= p.check_box :ptype, {:multiple => true}, "job_seeker" %> Get Hired</div>
+              <div class="col-md-6"><%= p.check_box :ptype, { :multiple => true }, "job_poster", nil %> Hire Someone</div>
+              <div class="col-md-6"><%= p.check_box :ptype, { :multiple => true }, "job_seeker", nil %> Get Hired</div>
             </div>
           </div>
           <div id="full-name" class="form-group">

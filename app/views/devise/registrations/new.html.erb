@@ -10,12 +10,23 @@
           <div class="col-md-3"><h4>Personal Info</h4></div>
           <div class="col-md-9">
             <div class="form-group">
-              <%= p.label :first_name %>
-              <%= p.text_field :first_name, autofocus: true, class: 'form-control' %>
+              <label>What do you want to do?</label>
+              <div class="row">
+                <div class="col-md-6"><input type="checkbox" name="user[profile_attributes][ptype][]" value="job_poster"> Hire Someone</div>
+                <div class="col-md-6"><input type="checkbox" name="user[profile_attributes][ptype][]" value="job_seeker"> Get Hired</div>
+              </div>
             </div>
-            <div class="form-group">
-              <%= p.label :last_name %>
-              <%= p.text_field :last_name, class: 'form-control' %>
+            <div id="full-name" class="form-group">
+              <div class="row">
+                <div class="col-md-6">
+                  <%= p.label :first_name %>
+                  <%= p.text_field :first_name, autofocus: true, class: 'form-control' %>    
+                </div>
+                <div class="col-md-6">
+                  <%= p.label :last_name %>
+                  <%= p.text_field :last_name, class: 'form-control' %>
+                </div>
+              </div>
             </div>
             <div class="form-group">
               <%= p.label :address_1 %>
