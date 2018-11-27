@@ -1,6 +1,6 @@
 class RolesController < ApplicationController
   before_action :set_role, only: [:edit, :update, :show, :destroy]
-  before_action :require_admin
+  skip_before_action :authenticate_user!, except: [:show]
   
   def index
     @roles = Role.paginate(page: params[:page], per_page: 5)
@@ -46,8 +46,8 @@ class RolesController < ApplicationController
   end
   
   def require_admin
-    if !logged_in? || (logged_in? and !current_user.admin?)
-      flash[:danger] = "Only admins can perform that action."
+    if logged_in? and !current_user.admin?
+      flash[:danger] = "Only admin users can perform that action"
       redirect_to root_path
     end
   end

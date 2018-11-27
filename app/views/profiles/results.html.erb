@@ -1,10 +1,5 @@
 <h1>Search Results</h1>
 
-<% if params[:action] == 'search' %>
-<div class="results-block">
-    <%= bootstrap_flash %>
-</div>
-<% end %>
 <% if @profiles %>
 <% @profiles.each do |profile| %>
 <div class="well results-block">

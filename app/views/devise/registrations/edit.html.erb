@@ -6,6 +6,16 @@
   </div>
   <div class="panel-body">
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+      <div class="form-row row">
+        <div class="col-md-3"><h4>Role</h4></div>
+        <div class="col-md-9">
+          <div class="form-group">
+            <%= f.collection_check_boxes :role_ids, Role.all, :id, :name do |cb| %>
+              <% cb.label(class: "checkbox-inline input_checkbox") {cb.check_box(class: "checkbox") + cb.text.gsub("_"," ").capitalize} %>
+            <% end %>
+          </div>
+        </div>
+      </div>
       <%= f.fields_for :profile do |p| %>
       <div class="form-row row">
         <div class="col-md-3">
@@ -17,13 +27,6 @@
           </div>
         </div>
         <div class="col-md-9">
-          <div class="form-group">
-            <label>What do you want to do?</label>
-            <div class="row">
-              <div class="col-md-6"><%= p.check_box :ptype, { :multiple => true }, "job_poster", nil %> Hire Someone</div>
-              <div class="col-md-6"><%= p.check_box :ptype, { :multiple => true }, "job_seeker", nil %> Get Hired</div>
-            </div>
-          </div>
           <div id="full-name" class="form-group">
             <div class="row">
               <div class="col-md-6">
