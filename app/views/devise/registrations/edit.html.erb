@@ -18,7 +18,8 @@
       </div>
       <%= f.fields_for :profile do |p| %>
       <div class="form-row row">
-        <div class="col-md-3"><h4>Personal Info</h4></div>
+        <div class="col-md-3">
+          <h4>Personal Info</h4>
           <div id="profile-pic" class="form-group">
             <label>Profile Pic</label>
             <p><img src="<%= current_user.profile.avatar.url %>" alt="" style="max-width:150px;" /></p>
