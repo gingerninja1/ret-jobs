@@ -18,18 +18,18 @@
 body {
 background-color:#F4F4F7;
 font-family: 'Lato', sans-serif;
-}
+-webkit-font-smoothing: antialiased;}
 
 img {max-width:100%;}
 
 h1 {
-font-family: 'Archivo Black', sans-serif;
+font-family: 'Oswald', sans-serif;
 font-size: 30pt;
-text-align: center;}
+text-align: center;
+text-shadow: 1px 1px 1px #ccc;}
 
 h2 {    
-text-transform: uppercase;
-text-shadow: 1px 1px 1px #ccc;}
+font-family: 'Oswald', sans-serif;}
 
 .no-marg {
 margin-right:0;
@@ -164,6 +164,7 @@ border-radius: 3px;
 margin-bottom: 8px;}
 
 #right-column .inner {
+padding: 25px;
 background: #fff;
 border: 1px rgba(0, 0, 0, 0.1) solid;}
 
@@ -187,7 +188,7 @@ color:#666;}
 
 #left-column li a:hover {
 text-decoration: none;
-background: #f7f7f7;
+background: #f9f9f9;
 border-radius: 3px;
 color: #666;}
 
