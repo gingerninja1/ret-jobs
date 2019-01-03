@@ -10,6 +10,7 @@ gem 'devise-bootstrap-views'
 gem 'carrierwave', '~> 1.0'
 gem 'will_paginate', '~> 3.1.0'
 gem 'bootstrap-will_paginate', '~> 0.0.10'
+gem 'geocoder', '~> 1.5.0'
 
 # User Authentication with Facebook
 gem 'omniauth-facebook'

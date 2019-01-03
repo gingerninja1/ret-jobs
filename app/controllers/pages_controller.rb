@@ -1,6 +1,7 @@
 class PagesController < ApplicationController
   
   def index
+    @local_users = Profile.where(zip: Geocoder.search(request.remote_ip).first.postal)
   end
   
   def about

@@ -4,6 +4,15 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :null_session
   
+  def after_sign_in_path_for(resource_or_scope)
+    edit_user_registration_path(current_user)
+  end
+
+  def after_sign_out_path_for(resource_or_scope)
+    #URI.parse(request.referer).path if request.referer
+    root_path
+  end
+  
   protected
   
   def configure_permitted_parameters

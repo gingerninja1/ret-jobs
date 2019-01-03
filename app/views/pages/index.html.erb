@@ -28,3 +28,27 @@
 <p>I think you get the idea, right? </p>
 
 <p>This website can help you to market your skills to your neighbors and maybe even kick start a new career, but more importantly help you with a little bit of additional monthly income and help you to utilize and share the talent we have in our community.</p>
+
+<section id="nearby-offerings">
+<h2>Nearby offerings</h2>
+<h3>Some jobseekers near you looking to be hired</h3>
+<ul>
+<% @local_users.each do |l| %>
+    <li>
+        <p class="name"><%= l.full_name %></p>
+        <p class="location"><%= "#{l.city}, #{l.state}" %></p>
+        <p class="bio"><%= l.bio %></p>
+    </li>
+<% end %>
+</ul>
+</section>
+
+<section id="top-rated-experiences">
+<h2>Top-rated experiences</h2>
+<h3>See what your neighbors have experienced</h3>
+<ul>
+    <li></li>
+    <li></li>
+    <li></li>
+</ul>
+</section>

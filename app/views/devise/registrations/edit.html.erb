@@ -5,6 +5,7 @@
     <a href="<%= user_path(@user) %>">View Profile</a>
   </div>
   <div class="panel-body">
+    <p style="font-size:9pt"><span class="req">*</span> indicates required field</p>
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
       <div class="form-row row">
         <div class="col-md-3"><h4>Role</h4></div>
@@ -30,11 +31,11 @@
           <div id="full-name" class="form-group">
             <div class="row">
               <div class="col-md-6">
-                <%= p.label :first_name %>
+                <%= p.label :first_name %><span class="req">*</span>
                 <%= p.text_field :first_name, autofocus: true, class: 'form-control' %>    
               </div>
               <div class="col-md-6">
-                <%= p.label :last_name %>
+                <%= p.label :last_name %><span class="req">*</span>
                 <%= p.text_field :last_name, class: 'form-control' %>
               </div>
             </div>
@@ -59,7 +60,7 @@
                 <input type="hidden" name="user[profile_attributes][country]" value="US" />
               </div>
               <div class="col-md-4">
-                <%= p.label :zip %>
+                <%= p.label :zip %><span class="req">*</span>
                 <%= p.text_field :zip, class: 'form-control' %>
               </div>
             </div>
@@ -132,7 +133,7 @@
         <div class="col-md-3"><h4>Account Info</h4></div>
         <div class="col-md-9">
           <div class="form-group">
-            <%= f.label :email %>
+            <%= f.label :email %><span class="req">*</span>
             <%= f.email_field :email, autofocus: true, class: 'form-control' %>
           </div>
           <div class="form-group">
@@ -160,3 +161,42 @@
     <% end %>
   </div>
 </div>
+
+<script>
+$(document).ready(function() {
+  
+  $('form#edit_user').submit(function(){
+      var errors, form,  selection = false;
+      if (inProcess) return false;
+      inProcess = true;
+      errors=[];
+      form = $("form#edit_user");
+  
+      if(!validateString($("input#user_profile_attributes_first_name").val(),1,120)) {
+          errors.push("Please enter your first name.");
+      }
+      
+      if(!validateString($("input#user_profile_attributes_last_name").val(),1,120)) {
+          errors.push("Please enter your last name.");
+      }
+      
+      if(!validateZip($("input#user_profile_attributes_zip").val(),1,120)) {
+          errors.push("Please enter a valid zip code.");
+      }
+      
+      if ($("input#user_email").length > 0) {
+          if(!validateEmail($("input#user_email").val())) {
+              errors.push("Please enter a valid email address.");
+          }
+      }
+  
+      if (errors.length > 0) {
+          alert(errors.join('\n'));
+          inProcess = false;
+          return false;
+      }
+      return true;
+  });
+  
+});
+</script>
