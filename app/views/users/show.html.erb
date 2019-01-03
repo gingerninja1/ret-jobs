@@ -1,7 +1,7 @@
 <div class="row">
     <div class="col-md-6">
         <div id="profile-header" class="row">
-            <div class="col-md-4"><img src="<%= @user_profile.avatar.url %>" alt="" /></div>
+            <div class="col-md-4"><img src="<%= @user_profile.avatar.present? ? @user_profile.avatar.url : "/assets/default_profile.jpg" %>" alt=""></div>
             <div class="col-md-8">
                 <h3><%= @user_profile.first_name %> <%= @user_profile.last_name %></h3>
                 <small>Member since: <%= @user.created_at.strftime("%B %d, %Y") %></small>

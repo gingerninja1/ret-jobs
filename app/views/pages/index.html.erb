@@ -29,26 +29,40 @@
 
 <p>This website can help you to market your skills to your neighbors and maybe even kick start a new career, but more importantly help you with a little bit of additional monthly income and help you to utilize and share the talent we have in our community.</p>
 
+<%- if @local_users.present? -%>
 <section id="nearby-offerings">
-<h2>Nearby offerings</h2>
-<h3>Some jobseekers near you looking to be hired</h3>
-<ul>
-<% @local_users.each do |l| %>
-    <li>
-        <p class="name"><%= l.full_name %></p>
+<h3>Nearby offerings</h3>
+<h4>Some jobseekers near you looking to be hired</h4>
+<div class="users row">
+<% @local_users[0..3].each do |l| %>
+    <div class="user col-md-3">
+        <div class="profile-pic"><img src="<%= l.avatar.present? ? "/uploads/profile/avatar/#{l.user.id}/#{l.avatar}" : "/assets/default_profile.jpg" %>" alt=""></div>
+        <h4 class="name"><%= link_to l.full_name, user_path(l) %></h4>
         <p class="location"><%= "#{l.city}, #{l.state}" %></p>
         <p class="bio"><%= l.bio %></p>
-    </li>
+    </div>
 <% end %>
-</ul>
+</div>
 </section>
+<%- end -%>
 
+<%- if @best_reviews.present? -%>
 <section id="top-rated-experiences">
-<h2>Top-rated experiences</h2>
-<h3>See what your neighbors have experienced</h3>
-<ul>
-    <li></li>
-    <li></li>
-    <li></li>
-</ul>
+<h3>Top-rated experiences</h3>
+<h4>See what your neighbors have experienced</h4>
+<div class="reviews row">
+    <% @best_reviews[0..3].each do |b| %>
+    <div class="review col-md-3">
+        <h2><%= b.title %></h2>
+        <div class="date"><%= b.created_at.strftime("%B %d, %Y") %></div>
+        <div class="rating"><div class="stars"><div class="stars-<%= b.rating %>"></div></div></div>
+        <div class="detail"><p><%= b.review %></p></div>
+        <div class="posted-by">
+            <img src="<%= b.profile.avatar.url %>" alt="" style="border-radius:50%;height:30px;width:30px;" />
+            <label><%= b.user.profile.first_name %></label>
+        </div>
+    </div>
+    <% end %>
+</div>
 </section>
+<%- end -%>

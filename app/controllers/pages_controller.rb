@@ -2,6 +2,7 @@ class PagesController < ApplicationController
   
   def index
     @local_users = Profile.where(zip: Geocoder.search(request.remote_ip).first.postal)
+    @best_reviews = Review.where(rating: 5).order(created_at: :desc)
   end
   
   def about
