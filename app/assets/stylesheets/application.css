@@ -79,6 +79,8 @@ font-size: 24px;
 line-height: 60px;
 height: 60px;}
 
+.navbar-default .navbar-brand:hover {color:#fff;}
+
 #search-form {
 float: left;
 padding: 14px 0 0 30px;}
@@ -91,11 +93,12 @@ vertical-align: middle;}
 display: inline-block;
 width: 250px;}
 
-.nav a {color:#fff}
-
+.nav a,
+.nav a.btn, 
 .nav a.btn:visited {color:#fff}
 
-.nav a.btn:hover {color:#333}
+.nav a.btn:hover,
+.nav a.btn:active {color:#333}
 
 .navbar-right li {vertical-align: top;}
 
