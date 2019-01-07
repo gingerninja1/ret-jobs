@@ -151,8 +151,8 @@ height: 470px;
 position: relative;}
 
 #hero-image #index-search {
-background: rgba(100, 100, 100, 0.7);
-padding: 20px;
+background: rgba(30, 30, 30, 0.8);
+padding: 30px 20px;
 border-radius: 5px;
 max-width: 450px;
 text-align: center;
@@ -211,6 +211,39 @@ color: #666;}
 
 #right-column h1 {
 margin: 0 0 20px;}
+
+#job-examples {
+margin:20px 0;
+padding:0;}
+
+#job-examples:after {
+display:block;
+height:1px;
+content:'';
+clear:both;}
+
+#job-examples li {
+width: 250px;
+text-align: center;
+float: left;
+list-style: none;
+border: 2px solid #eaeaea;
+border-radius: 5px;
+padding: 15px;
+min-height:250px;
+margin:0 15px 15px 0;}
+
+#job-examples li i {
+display:block;
+font-size: 40pt;
+margin: 0 0 20px;
+color: #bebebe;}
+
+#job-examples li label {
+display:block;
+font-size: 14pt;
+line-height: 16pt;
+margin-bottom:15px;}
 
 ul.listing {
 margin:0;
