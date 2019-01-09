@@ -210,7 +210,7 @@ border-radius: 3px;
 color: #666;}
 
 #right-column h1 {
-margin: 0 0 20px;}
+margin: 0 0 35px;}
 
 #job-examples {
 margin:20px 0;
@@ -378,6 +378,18 @@ padding-top:5px;
 padding-bottom:5px;}
 
 #conversations .item div {border-bottom:1px solid #e7e7e7;}
+
+
+/***** Help Page *****/
+
+.help #right-column li {
+margin-bottom: 30px;
+font-size: 12pt;}
+
+.help #right-column li,
+.help #right-column li p {font-size:11pt;}
+
+.help #right-column li label {font-size:12pt;}
 
 
 /***** Footer *****/
