@@ -46,8 +46,8 @@ margin-right:0;
 margin-left:0;}
 
 .btn-primary {
-padding: 10px 20px;
-font-size: 11pt;
+padding: 8px 15px;
+font-size: 10pt;
 text-transform: uppercase;}
 
 .form-row {
@@ -387,6 +387,24 @@ padding-bottom:5px;}
 #conversations .item div {border-bottom:1px solid #e7e7e7;}
 
 
+/***** Categories *****/
+
+.listing .user h2 {margin-top:0;}
+
+.listing .user h2 a:link,
+.listing .user h2 a:visited {}
+  
+.listing .user h2 a:hover,
+.listing .user h2 a:active {
+background:none;
+text-decoration: underline;
+color:#333;}
+
+.listing .bio {margin-bottom:10px;}
+
+.listing .skills {margin-bottom:20px;}
+
+
 /***** Help Page *****/
 
 .help #right-column li {
@@ -397,6 +415,11 @@ font-size: 12pt;}
 .help #right-column li p {font-size:11pt;}
 
 .help #right-column li label {font-size:12pt;}
+
+
+/***** Sign Up *****/
+
+.get-hired {display:none;}
 
 
 /***** Footer *****/

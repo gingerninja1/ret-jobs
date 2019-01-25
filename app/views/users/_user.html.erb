@@ -5,7 +5,13 @@
             <div class="col-md-2"><img src="<%= user.profile.avatar.url %>" alt="" style="max-width:100%;" /></div>
             <div class="col-md-10">
                 <div class="user">
-                    <div><%= link_to "#{user.profile.first_name} #{user.profile.last_name}", user_path(user) %></div>
+                    <h2><%= link_to "#{user.profile.first_name} #{user.profile.last_name}", user_path(user) %></h2>
+                </div>
+                <div class="bio">
+                    <%= user.profile.bio.truncate(200, separator: ' ') %>
+                </div>
+                <div class="skills">
+                    <%= user.profile.skills %>
                 </div>
                 <% if current_user %>
                 <%= link_to 'Send Message', conversations_path(sender_id: current_user.id, recipient_id: user.id), method: 'post', class: 'btn btn-primary send-message' %>
