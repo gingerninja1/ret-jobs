@@ -428,3 +428,36 @@ footer {
 margin-top: 30px;
 border-top: 1px rgba(0, 0, 0, 0.1) solid;
 padding: 20px 0;}
+
+
+/***** Media Queries *****/
+
+@media screen and (max-width:580px) {
+  
+.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
+background-color: #204C72;}
+  
+.navbar-default .navbar-toggle .icon-bar {
+background-color: #fff;}
+  
+#hero-image {
+background: none;
+height: auto;}
+
+#hero-image #index-search {
+margin-top: 30px;}
+
+#search-form .form-control {
+display: block;
+width: 100%;}
+
+#hero-image #index-search #search-form .btn {
+width: 100%;
+margin-top: 10px;}
+
+#job-examples li {
+width: 100%;
+float: none;
+min-height: 220px;}
+  
+}
