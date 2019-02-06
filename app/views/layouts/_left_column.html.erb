@@ -1,7 +1,7 @@
 <section class="lc-section" id="categories">
     <h3>Categories</h3>
     <ul>
-        <% Category.all.each do |category| %>
+        <% Category.order('name ASC').all.each do |category| %>
         <li><%= link_to "#{category.name}", category_path(category) %></li>
         <% end %>
         <li><%= link_to "All Categories", categories_path %></li>

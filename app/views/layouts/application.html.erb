@@ -31,7 +31,7 @@
         <a class="navbar-brand" href="<%= root_path %>">HireNeighbors</a>
         <%- unless current_page?(root_url) -%>
         <%= form_tag(search_path, :method => "get", id: "search-form") do %>
-            <%= text_field_tag :search, params[:search], placeholder: "Search for a neighbor", class: 'form-control' %>
+            <%= text_field_tag :search, params[:search], placeholder: "Search for a skill", class: 'form-control' %>
             <%= submit_tag "Search", :name => nil, :class => 'btn btn-md' %>
         <% end %>
         <%- end -%>
@@ -68,7 +68,7 @@
                 <div id="index-search">
                     <h2>Find a neighbor to hire</h2>
                     <%= form_tag(search_path, :method => "get", id: "search-form") do %>
-                        <%= text_field_tag :search, params[:search], placeholder: "Search for a neighbor", class: 'form-control' %>
+                        <%= text_field_tag :search, params[:search], placeholder: "Search for a skill", class: 'form-control' %>
                         <%= submit_tag "Search", :name => nil, :class => 'btn btn-md' %>
                     <% end %>
                 </div>  
