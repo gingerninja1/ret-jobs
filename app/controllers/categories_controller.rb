@@ -32,7 +32,13 @@ class CategoriesController < ApplicationController
   end
   
   def show
-    @category_users = @category.users.paginate( page: params[:page], per_page: 5)
+    if current_user
+      user_zip = current_user.profile.zip
+    else
+      user_zip = Geocoder.search(request.remote_ip).first.postal
+    end
+    
+    @category_users = User.joins(:categories, :profile).where("categories.id = ? AND profiles.zip = ?", params[:id], user_zip).paginate( page: params[:page], per_page: 5)
   end
   
   private
